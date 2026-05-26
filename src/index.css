@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=JetBrains+Mono:wght@450;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer utilities {
+  /* High-end glassmorphic panels */
+  .glass-panel {
+    background: rgba(18, 11, 38, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(224, 180, 76, 0.12);
+  }
+
+  .glass-panel-purple {
+    background: rgba(43, 21, 84, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+  }
+
+  /* Luxurious gold and premium neon purple buttons & borders */
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, #fef08a 0%, #ca8a04 50%, #854d0e 100%);
+  }
+
+  .gold-text {
+    background: linear-gradient(to right, #ffe082 0%, #facc15 50%, #ca8a04 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .purple-neon-glow {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.35);
+  }
+
+  .gold-neon-glow {
+    box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+  }
+}

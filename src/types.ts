@@ -4,7 +4,7 @@ export interface Card {
   rank: number; // 2-14
 }
 
-export type GameType = 'slots' | 'blackjack' | 'roulette' | 'poker' | 'live';
+export type GameType = 'lucky_wheel' | 'lucky_roulette';
 
 export interface WalletState {
   balance: number;

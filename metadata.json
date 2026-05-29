@@ -1,6 +1,6 @@
 {
-  "name": "Neon Spin Casino",
-  "description": "A premium, high-fidelity mobile casino workspace featuring real-time virtual Slots, Blackjack, Roulette, Poker, and a responsive Live AI Dealer.",
+  "name": "Big Bull",
+  "description": "A high-fidelity virtual sandbox arena featuring Lucky Wheel and Lucky Roulette with a simulation ledger wallet for secure amusement play.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

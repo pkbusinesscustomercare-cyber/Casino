@@ -33,11 +33,8 @@ import {
   Crown
 } from 'lucide-react';
 
-import Slots from './components/Slots';
-import Blackjack from './components/Blackjack';
-import Roulette from './components/Roulette';
-import Poker from './components/Poker';
-import LiveDealer from './components/LiveDealer';
+import LuckyWheel from './components/LuckyWheel';
+import LuckyRoulette from './components/LuckyRoulette';
 import WalletPanel from './components/WalletPanel';
 import BonusWheelModal from './components/BonusWheelModal';
 import { GameType, WalletState } from './types';
@@ -53,7 +50,7 @@ interface LeaderboardEntry {
 export default function App() {
   const [wallet, setWallet] = useState<WalletState>({
     balance: 0,
-    tier: 'Bronze',
+    tier: 'VIP Diamond',
     totalHandsPlayed: 0,
   });
 
@@ -113,65 +110,34 @@ export default function App() {
 
   // High Roller mockup data for leaderboard
   const mockLeaderboard: LeaderboardEntry[] = [
-    { rank: 1, name: 'SovereignGold', winnings: 849200, game: 'Neon Reels', tier: 'VIP Diamond' },
-    { rank: 2, name: 'Vegas_Oracle', winnings: 591240, game: 'Crypto Wheel', tier: 'VIP Diamond' },
-    { rank: 3, name: 'pkbusiness', winnings: 15750, game: 'Neon Jack 21', tier: 'Gold' },
-    { rank: 4, name: 'LotusWhisper', winnings: 92800, game: 'Texas Hold\'em', tier: 'Silver' },
-    { rank: 5, name: 'ApexStriker', winnings: 74200, game: 'Neon Reels', tier: 'Bronze' },
+    { rank: 1, name: 'SovereignGold', winnings: 849200, game: 'Lucky Wheel', tier: 'VIP Diamond' },
+    { rank: 2, name: 'Vegas_Oracle', winnings: 591240, game: 'Lucky Roulette', tier: 'VIP Diamond' },
+    { rank: 3, name: 'pkbusiness', winnings: 15750, game: 'Lucky Roulette', tier: 'Gold' },
+    { rank: 4, name: 'LotusWhisper', winnings: 92800, game: 'Lucky Wheel', tier: 'Silver' },
+    { rank: 5, name: 'ApexStriker', winnings: 74200, game: 'Lucky Wheel', tier: 'Bronze' },
   ];
 
   // Elegant game templates for our premium carousel items
   const premiumGames = [
     {
-      id: 'slots' as GameType,
-      title: 'Neon Reels',
-      subtitle: 'VOLATILITY: HIGH • RTP 98.4%',
-      emoji: '🍒 💎 7️⃣',
-      badge: 'POPULAR JACKPOT',
-      playersCount: 1428,
+      id: 'lucky_wheel' as GameType,
+      title: 'Lucky Wheel',
+      subtitle: 'SINGLE-DIGIT • RTP 98.4%',
+      emoji: '🎡 🔢 🪙',
+      badge: 'MINI GAME',
+      playersCount: 1845,
       accentColor: 'from-[#ec4899] via-[#854d0e] to-purple-950',
-      tagline: '3-reel multiplier madness with audio synthesis'
+      tagline: '10-sector spinning target wheel with single digit bets'
     },
     {
-      id: 'blackjack' as GameType,
-      title: 'Neon Jack 21',
-      subtitle: 'VIP CLUB STANDARD • RTP 99.2%',
-      emoji: '🃏 ♦ ♠',
-      badge: 'STRATEGY CLASSIC',
-      playersCount: 844,
-      accentColor: 'from-[#3b82f6] via-[#1e1b4b] to-[#12072b]',
-      tagline: 'Instant payouts, stands on soft 17s'
-    },
-    {
-      id: 'roulette' as GameType,
-      title: 'Crypto Wheel',
-      subtitle: 'EUROPEAN LAYOUT • RTP 97.3%',
-      emoji: '🔴 🎰 ⚫',
-      badge: '35x MULTIPLIER',
-      playersCount: 1957,
-      accentColor: 'from-[#ca8a04] via-[#7c3aed] to-[#010816]',
-      tagline: 'Swirling high resolution European single-zero layout'
-    },
-    {
-      id: 'poker' as GameType,
-      title: 'Jacks Video Poker',
-      subtitle: 'DRAW FORMAT • RTP 99.5%',
-      emoji: '👑 🎴 ✨',
-      textRepresentation: 'Texas Hold\'em Vibe',
-      badge: 'JACKS OR BETTER',
-      playersCount: 611,
-      accentColor: 'from-amber-400 via-purple-900 to-[#0c051a]',
-      tagline: '5-card draw format trainer with video paytable'
-    },
-    {
-      id: 'live' as GameType,
-      title: 'AI Croupier Lounge',
-      subtitle: 'REAL-TIME LLM HOST • RTP 98%',
-      emoji: '🎙 Sophia 🔮',
-      badge: 'LIVE INTERACTIVE',
-      playersCount: 3491,
-      accentColor: 'from-purple-600 via-indigo-950 to-slate-950',
-      tagline: 'Ask Sophia for custom strategies, bankroll tricks, or chat!'
+      id: 'lucky_roulette' as GameType,
+      title: 'Lucky Roulette',
+      subtitle: 'EUROPEAN FELT • RTP 97.3%',
+      emoji: '🎡 🔴 ⚫',
+      badge: 'HIGH STAKES',
+      playersCount: 2954,
+      accentColor: 'from-[#1e40af] via-[#0f172a] to-[#040e2b]',
+      tagline: 'Classic 37-sector blue layout roulette board table'
     }
   ];
 
@@ -304,11 +270,8 @@ export default function App() {
 
             {/* Render selected active game */}
             <div className="w-full">
-              {selectedGame === 'slots' && <Slots balance={wallet.balance} onUpdateBalance={updateBalance} />}
-              {selectedGame === 'blackjack' && <Blackjack balance={wallet.balance} onUpdateBalance={updateBalance} />}
-              {selectedGame === 'roulette' && <Roulette balance={wallet.balance} onUpdateBalance={updateBalance} />}
-              {selectedGame === 'poker' && <Poker balance={wallet.balance} onUpdateBalance={updateBalance} />}
-              {selectedGame === 'live' && <LiveDealer />}
+              {selectedGame === 'lucky_wheel' && <LuckyWheel balance={wallet.balance} onUpdateBalance={updateBalance} />}
+              {selectedGame === 'lucky_roulette' && <LuckyRoulette balance={wallet.balance} onUpdateBalance={updateBalance} />}
             </div>
 
           </div>
@@ -328,7 +291,7 @@ export default function App() {
                       Welcome back, <span className="gold-text">Sovereign Highroller</span>
                     </h3>
                     <p className="text-xs text-slate-400 leading-relaxed max-w-lg">
-                      Enjoy five of our custom-coded virtual tables. Spin, play, draw, or live chat with Sophia with no KYC limitations. Live RTP indexes and synthetic audio are preconfigured.
+                      Enjoy our two custom-coded virtual tables. Spin the 10-Sector Lucky Wheel or place professional layout bets on the Lucky Roulette board with no KYC limitations.
                     </p>
                   </div>
 
@@ -444,12 +407,9 @@ export default function App() {
                       </p>
                     </div>
                   </div>
-                  <button 
-                    onClick={() => setSelectedGame('live')}
-                    className="text-[10px] text-purple-300 font-black tracking-widest uppercase hover:text-white"
-                  >
-                    Open AI Lounge & Chat
-                  </button>
+                  <span className="text-[10px] text-emerald-400 font-black tracking-widest uppercase px-2 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
+                    LIVE SYSTEM FEED
+                  </span>
                 </div>
 
               </div>
